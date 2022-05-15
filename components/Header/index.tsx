@@ -10,8 +10,6 @@ import {
 	Group,
 	Container,
 	Text,
-	ActionIcon,
-	useMantineColorScheme,
 	createStyles,
 	Burger,
 	Transition,
@@ -20,7 +18,7 @@ import {
 
 import { useBooleanToggle } from '@mantine/hooks'
 
-import { MoonStars, Sun } from 'tabler-icons-react'
+import DarkMode from './DarkMode'
 
 const useStyles = createStyles((theme) => ({
 	root: {
@@ -103,7 +101,6 @@ const useStyles = createStyles((theme) => ({
 }))
 
 const Header = () => {
-	const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 	const { classes, cx } = useStyles()
 	const [opened, toggleOpened] = useBooleanToggle(false)
 	const router = useRouter()
@@ -123,32 +120,20 @@ const Header = () => {
 
 	return (
 		<>
-			<HeaderMantine height={60} mb={40} className={classes.root}>
+			<HeaderMantine height={60} mb={80} className={classes.root}>
 				<Container size='xl' className={classes.header}>
 					<Group>
 						<Text>Chalvin Wiradhika</Text>
 					</Group>
 					<Group position='right' spacing={40} className={classes.links}>
 						{navLink}
-						<ActionIcon
-							variant='default'
-							onClick={() => toggleColorScheme()}
-							size={32}
-						>
-							{colorScheme === 'dark' ? (
-								<Sun size={16} />
-							) : (
-								<MoonStars size={16} />
-							)}
-						</ActionIcon>
+						<DarkMode />
 					</Group>
 
-					<Burger
-						opened={opened}
-						onClick={() => toggleOpened()}
-						className={classes.burger}
-						size='sm'
-					/>
+					<Group className={classes.burger}>
+						<DarkMode />
+						<Burger opened={opened} onClick={() => toggleOpened()} size='sm' />
+					</Group>
 
 					<Transition
 						transition='pop-top-right'
