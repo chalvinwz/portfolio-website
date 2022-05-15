@@ -33,12 +33,6 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 
-	links: {
-		[theme.fn.smallerThan('xs')]: {
-			marginTop: theme.spacing.md,
-		},
-	},
-
 	underline: {
 		textDecoration: 'underline',
 	},
@@ -48,11 +42,12 @@ const Footer = () => {
 	const { classes } = useStyles()
 
 	return (
-		<FooterMantine height={60} mt={40} className={classes.footer}>
+		<FooterMantine height={60} mt={80} className={classes.footer}>
 			<Container className={classes.inner}>
 				<Group>
 					<Text>Chalvin Wiradhika</Text>
 				</Group>
+
 				<Group spacing={0}>
 					<Text
 						component='a'
@@ -71,7 +66,8 @@ const Footer = () => {
 						<BrandGithub size={20} />
 					</ActionIcon>
 				</Group>
-				<Group spacing={8} className={classes.links} position='right' noWrap>
+
+				<Group spacing={8} noWrap>
 					<ActionIcon
 						size='lg'
 						component='a'
