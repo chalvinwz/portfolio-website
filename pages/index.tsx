@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 const Home = () => {
 	return (
-		<Layout>
+		<Layout title='Home - Chalvin Wiradhika'>
 			<>
 				<div>Home</div>
 				<div>Home</div>

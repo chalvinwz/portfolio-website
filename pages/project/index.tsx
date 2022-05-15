@@ -4,7 +4,7 @@ import Layout from '../../components/Layout'
 
 const Project = () => {
 	return (
-		<Layout>
+		<Layout title='Project - Chalvin Wiradhika'>
 			<div>Project</div>
 		</Layout>
 	)
