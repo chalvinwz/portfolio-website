@@ -84,14 +84,17 @@ const useStyles = createStyles((theme) => ({
 	},
 
 	box: {
-		margin: 120,
+		marginTop: 120,
+		marginBottom: 120,
 
 		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
-			margin: 100,
+			marginTop: 100,
+			marginBottom: 100,
 		},
 
 		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
-			margin: 80,
+			marginTop: 80,
+			marginBottom: 80,
 		},
 	},
 }))

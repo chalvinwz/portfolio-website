@@ -24,14 +24,17 @@ type Data = {
 
 const useStyles = createStyles((theme) => ({
 	box: {
-		margin: 80,
+		marginTop: 80,
+		marginBottom: 80,
 
 		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
-			margin: 60,
+			marginTop: 60,
+			marginBottom: 60,
 		},
 
 		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
-			margin: 40,
+			marginTop: 40,
+			marginBottom: 40,
 		},
 
 		[`@media (max-width: ${theme.breakpoints.sm}px)`]: {
