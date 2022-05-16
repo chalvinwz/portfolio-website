@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	createStyles,
 	Container,
@@ -7,6 +6,7 @@ import {
 	Text,
 	Footer as FooterMantine,
 } from '@mantine/core'
+
 import {
 	BrandTwitter,
 	BrandLinkedin,

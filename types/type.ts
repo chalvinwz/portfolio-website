@@ -1,4 +1,3 @@
-export type Meta = {
-	author: string
-	title: string
+export type NavLinks = {
+	links: { link: string; label: string }[]
 }

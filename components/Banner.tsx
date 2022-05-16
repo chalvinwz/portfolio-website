@@ -1,12 +1,4 @@
-import React from 'react'
-
-import type { Meta } from '../types/type'
-
-type Props = {
-	meta: Meta
-}
-
-const Banner = ({ meta }: Props) => {
+const Banner = () => {
 	return <div>Banner</div>
 }
 

@@ -1,8 +1,6 @@
-type Links = {
-	links: { link: string; label: string }[]
-}
+import type { NavLinks } from '../types/type'
 
-export const data: Links = {
+export const dataNavLinks: NavLinks = {
 	links: [
 		{
 			link: '/',

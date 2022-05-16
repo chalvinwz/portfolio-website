@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	createStyles,
 	Container,
@@ -21,10 +20,6 @@ const useStyles = createStyles((theme) => ({
 
 	inner: {
 		position: 'relative',
-		[BREAKPOINT]: {
-			paddingBottom: 80,
-			paddingTop: 80,
-		},
 	},
 
 	title: {

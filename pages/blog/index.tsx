@@ -1,23 +1,47 @@
 import Link from 'next/link'
-import React from 'react'
 
-import { data } from './data'
+import { getSortedPostsData } from '../../utils/posts'
 
 import Layout from '../../components/Layout'
 import { Anchor, Group } from '@mantine/core'
+import Date from '../../components/Date'
 
-const Blog = () => {
+type Data = {
+	slug: string
+	date: string
+	title: string
+}
+
+const Blog = ({ allPostsData }: any) => {
 	return (
 		<Layout title='Blog - Chalvin Wiradhika'>
-			<Group spacing={20}>
-				{data.links.map((link) => (
-					<Link href={link.link} key={link.label} passHref>
-						<Anchor>{link.label}</Anchor>
-					</Link>
-				))}
-			</Group>
+			<>
+				<h2>Blog</h2>
+				<Group>
+					<ul>
+						{allPostsData.map(({ slug, date, title }: Data) => (
+							<li key={slug}>
+								<Link href={`blog/${slug}`} passHref>
+									<Anchor>{title}</Anchor>
+								</Link>
+								<br />
+								<Date dateString={date} />
+							</li>
+						))}
+					</ul>
+				</Group>
+			</>
 		</Layout>
 	)
+}
+
+export async function getStaticProps() {
+	const allPostsData = getSortedPostsData()
+	return {
+		props: {
+			allPostsData,
+		},
+	}
 }
 
 export default Blog
