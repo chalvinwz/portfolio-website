@@ -6,6 +6,7 @@ import {
 	Group,
 	useMantineTheme,
 	Title,
+	Box,
 } from '@mantine/core'
 import Layout from '../components/Layout'
 import Link from 'next/link'
@@ -81,6 +82,18 @@ const useStyles = createStyles((theme) => ({
 			} !important`,
 		},
 	},
+
+	box: {
+		margin: 120,
+
+		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+			margin: 100,
+		},
+
+		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
+			margin: 80,
+		},
+	},
 }))
 
 const Home = () => {
@@ -89,7 +102,7 @@ const Home = () => {
 
 	return (
 		<Layout title='Home - Chalvin Wiradhika'>
-			<div className={classes.wrapper}>
+			<Box className={cx(classes.wrapper, classes.box)}>
 				<Container size={700} className={classes.inner}>
 					<Title order={1} className={classes.title}>
 						Hi, I Am
@@ -133,7 +146,7 @@ const Home = () => {
 						</Link>
 					</Group>
 				</Container>
-			</div>
+			</Box>
 		</Layout>
 	)
 }

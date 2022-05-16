@@ -3,7 +3,15 @@ import Link from 'next/link'
 import { getSortedPostsData } from '../../utils/posts'
 
 import Layout from '../../components/Layout'
-import { Anchor, Grid, Group, Image, Title } from '@mantine/core'
+import {
+	Anchor,
+	Box,
+	createStyles,
+	Grid,
+	Group,
+	Image,
+	Title,
+} from '@mantine/core'
 import Date from '../../components/Date'
 import CardBlog from '../../components/CardBlog'
 
@@ -14,21 +22,40 @@ type Data = {
 	image: string
 }
 
+const useStyles = createStyles((theme) => ({
+	box: {
+		margin: 80,
+
+		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+			margin: 60,
+		},
+
+		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
+			margin: 40,
+		},
+
+		[`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+			margin: 20,
+		},
+	},
+}))
+
 const Blog = ({ allPostsData }: any) => {
+	const { classes, cx } = useStyles()
 	return (
 		<Layout title='Blog - Chalvin Wiradhika'>
-			<>
+			<Box className={classes.box}>
 				<Title mb='lg' order={2}>
 					Blog
 				</Title>
 				<Grid>
 					{allPostsData.map((postData: Data) => (
-						<Grid.Col xs={12} sm={6} md={4} key={postData.slug}>
+						<Grid.Col sm={6} lg={4} key={postData.slug}>
 							<CardBlog postData={postData} />
 						</Grid.Col>
 					))}
 				</Grid>
-			</>
+			</Box>
 		</Layout>
 	)
 }

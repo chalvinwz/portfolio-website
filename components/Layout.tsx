@@ -19,9 +19,7 @@ const Layout = ({ children, title }: Props) => {
 			</Head>
 
 			<Header />
-			<Container my={80} size='lg'>
-				{children}
-			</Container>
+			<Container size='lg'>{children}</Container>
 			<Footer />
 		</>
 	)
