@@ -1,22 +1,24 @@
-import { Text } from '@mantine/core'
+import { Text, Title } from '@mantine/core'
 import Date from '../../components/Date'
 import Layout from '../../components/Layout'
+import ReactMarkdown from 'react-markdown'
 import { getAllPostSlugs, getPostData } from '../../utils/posts'
+import CodeBlock from '../../components/CodeBlock'
+import MarginBox from '../../components/MarginBox'
 
 const Post = ({ postData }: any) => {
 	return (
 		<Layout title={postData.title}>
-			<div>
-				{postData.title}
-				<br />
-				{postData.slug}
-				<br />
+			<MarginBox>
+				<Title order={1}>{postData.title}</Title>
+				<Text>{postData.desc}</Text>
 				<Date dateString={postData.date} />
-				<br />
-				<Text size='xl'>
-					<div dangerouslySetInnerHTML={{ __html: postData.blogContent }} />
+				<Text>
+					<ReactMarkdown components={CodeBlock}>
+						{postData.markdown}
+					</ReactMarkdown>
 				</Text>
-			</div>
+			</MarginBox>
 		</Layout>
 	)
 }
@@ -30,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-	const postData = await getPostData(params.slug)
+	const postData = getPostData(params.slug)
 	return {
 		props: {
 			postData,

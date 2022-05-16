@@ -1,8 +1,9 @@
 import { getSortedPostsData } from '../../utils/posts'
 
 import Layout from '../../components/Layout'
-import { Box, createStyles, Grid, Title } from '@mantine/core'
+import { Grid, Title } from '@mantine/core'
 import CardBlog from '../../components/CardBlog'
+import MarginBox from '../../components/MarginBox'
 
 type Data = {
 	slug: string
@@ -11,32 +12,10 @@ type Data = {
 	image: string
 }
 
-const useStyles = createStyles((theme) => ({
-	box: {
-		marginTop: 80,
-		marginBottom: 80,
-
-		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
-			marginTop: 60,
-			marginBottom: 60,
-		},
-
-		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
-			marginTop: 40,
-			marginBottom: 40,
-		},
-
-		[`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-			margin: 20,
-		},
-	},
-}))
-
 const Blog = ({ allPostsData }: any) => {
-	const { classes, cx } = useStyles()
 	return (
 		<Layout title='Blog - Chalvin Wiradhika'>
-			<Box className={classes.box}>
+			<MarginBox>
 				<Title mb='lg' order={2}>
 					Blog
 				</Title>
@@ -47,7 +26,7 @@ const Blog = ({ allPostsData }: any) => {
 						</Grid.Col>
 					))}
 				</Grid>
-			</Box>
+			</MarginBox>
 		</Layout>
 	)
 }

@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), 'content')
 
 export function getSortedPostsData() {
 	const fileNames = fs.readdirSync(postsDirectory)
@@ -45,20 +45,15 @@ export function getAllPostSlugs() {
 	})
 }
 
-export async function getPostData(slug: string) {
+export function getPostData(slug: string) {
 	const fullPath = path.join(postsDirectory, `${slug}.md`)
 	const fileContents = fs.readFileSync(fullPath, 'utf8')
 
 	const matterResult = matter(fileContents)
 
-	const processedContent = await remark()
-		.use(html)
-		.process(matterResult.content)
-	const blogContent = processedContent.toString()
-
 	return {
 		slug,
-		blogContent,
+		markdown: matterResult.content,
 		...matterResult.data,
 	}
 }
