@@ -1,7 +1,7 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2020-01-02'
-image: 'https://images.unsplash.com/photo-1652282560357-52d524ee6cc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+title: 'What is Docker?'
+date: '2022-05-16'
+image: 'https://images.unsplash.com/photo-1605745341075-1b7460b99df8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZG9ja2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.

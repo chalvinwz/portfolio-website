@@ -6,6 +6,7 @@ import {
 	Text,
 	Footer as FooterMantine,
 } from '@mantine/core'
+import Link from 'next/link'
 
 import {
 	BrandTwitter,
@@ -42,10 +43,12 @@ const Footer = () => {
 	const { classes } = useStyles()
 
 	return (
-		<FooterMantine height={60} mt={80} className={classes.footer}>
+		<FooterMantine height={60} className={classes.footer}>
 			<Container className={classes.inner}>
 				<Group>
-					<Text>Chalvin Wiradhika</Text>
+					<Link href='/' passHref>
+						<Text component='a'>Chalvin Wiradhika</Text>
+					</Link>
 				</Group>
 
 				<Group spacing={0}>

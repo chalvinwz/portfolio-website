@@ -3,33 +3,31 @@ import Link from 'next/link'
 import { getSortedPostsData } from '../../utils/posts'
 
 import Layout from '../../components/Layout'
-import { Anchor, Group } from '@mantine/core'
+import { Anchor, Grid, Group, Image, Title } from '@mantine/core'
 import Date from '../../components/Date'
+import CardBlog from '../../components/CardBlog'
 
 type Data = {
 	slug: string
 	date: string
 	title: string
+	image: string
 }
 
 const Blog = ({ allPostsData }: any) => {
 	return (
 		<Layout title='Blog - Chalvin Wiradhika'>
 			<>
-				<h2>Blog</h2>
-				<Group>
-					<ul>
-						{allPostsData.map(({ slug, date, title }: Data) => (
-							<li key={slug}>
-								<Link href={`blog/${slug}`} passHref>
-									<Anchor>{title}</Anchor>
-								</Link>
-								<br />
-								<Date dateString={date} />
-							</li>
-						))}
-					</ul>
-				</Group>
+				<Title mb='lg' order={2}>
+					Blog
+				</Title>
+				<Grid>
+					{allPostsData.map((postData: Data) => (
+						<Grid.Col span={4} key={postData.slug}>
+							<CardBlog postData={postData} />
+						</Grid.Col>
+					))}
+				</Grid>
 			</>
 		</Layout>
 	)

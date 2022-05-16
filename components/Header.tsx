@@ -120,10 +120,12 @@ const Header = () => {
 
 	return (
 		<>
-			<HeaderMantine height={60} mb={80} className={classes.root}>
+			<HeaderMantine height={60} className={classes.root}>
 				<Container size='xl' className={classes.header}>
 					<Group>
-						<Text>Chalvin Wiradhika</Text>
+						<Link href='/' passHref>
+							<Text component='a'>Chalvin Wiradhika</Text>
+						</Link>
 					</Group>
 					<Group position='right' spacing={40} className={classes.links}>
 						{navLink}
