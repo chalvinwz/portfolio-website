@@ -1,18 +1,7 @@
-import Link from 'next/link'
-
 import { getSortedPostsData } from '../../utils/posts'
 
 import Layout from '../../components/Layout'
-import {
-	Anchor,
-	Box,
-	createStyles,
-	Grid,
-	Group,
-	Image,
-	Title,
-} from '@mantine/core'
-import Date from '../../components/Date'
+import { Box, createStyles, Grid, Title } from '@mantine/core'
 import CardBlog from '../../components/CardBlog'
 
 type Data = {

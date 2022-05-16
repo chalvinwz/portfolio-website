@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-	createStyles,
-	Card,
-	Image,
-	Avatar,
-	Text,
-	Group,
-	Stack,
-} from '@mantine/core'
+import { createStyles, Card, Image, Text, Stack } from '@mantine/core'
 import Date from './Date'
 import Link from 'next/link'
 
