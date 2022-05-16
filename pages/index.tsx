@@ -10,7 +10,7 @@ import {
 import Layout from '../components/Layout'
 import Link from 'next/link'
 
-const BREAKPOINT = '@media (max-width: 755px)'
+const BREAKPOINT = '@media (max-width: 768px)'
 
 const useStyles = createStyles((theme) => ({
 	wrapper: {

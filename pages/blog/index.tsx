@@ -23,7 +23,7 @@ const Blog = ({ allPostsData }: any) => {
 				</Title>
 				<Grid>
 					{allPostsData.map((postData: Data) => (
-						<Grid.Col span={4} key={postData.slug}>
+						<Grid.Col xs={12} sm={6} md={4} key={postData.slug}>
 							<CardBlog postData={postData} />
 						</Grid.Col>
 					))}
