@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	createStyles,
 	Container,
@@ -7,6 +6,8 @@ import {
 	Text,
 	Footer as FooterMantine,
 } from '@mantine/core'
+import Link from 'next/link'
+
 import {
 	BrandTwitter,
 	BrandLinkedin,
@@ -42,16 +43,16 @@ const Footer = () => {
 	const { classes } = useStyles()
 
 	return (
-		<FooterMantine height={60} mt={80} className={classes.footer}>
+		<FooterMantine height={60} className={classes.footer}>
 			<Container className={classes.inner}>
-				<Group>
-					<Text>Chalvin Wiradhika</Text>
-				</Group>
+				<Link href='/' passHref>
+					<Text component='a'>Chalvin Wiradhika</Text>
+				</Link>
 
 				<Group spacing={0}>
 					<Text
 						component='a'
-						href='https://github.com/chalvinwz'
+						href='https://github.com/chalvinwz/portfolio-website'
 						size='sm'
 						className={classes.underline}
 					>
@@ -61,7 +62,7 @@ const Footer = () => {
 					<ActionIcon
 						size='lg'
 						component='a'
-						href='https://github.com/chalvinwz'
+						href='https://github.com/chalvinwz/portfolio-website'
 					>
 						<BrandGithub size={20} />
 					</ActionIcon>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 
-import { data } from './data'
+import { dataNavLinks } from '../data/data'
 
 import {
 	Anchor,
@@ -18,7 +18,7 @@ import {
 
 import { useBooleanToggle } from '@mantine/hooks'
 
-import DarkMode from './DarkMode'
+import SunMoonIcon from './SunMoonIcon'
 
 const useStyles = createStyles((theme) => ({
 	root: {
@@ -105,7 +105,7 @@ const Header = () => {
 	const [opened, toggleOpened] = useBooleanToggle(false)
 	const router = useRouter()
 
-	const navLink = data.links.map((link) => (
+	const navLink = dataNavLinks.links.map((link) => (
 		<Link href={link.link} key={link.label} passHref>
 			<Anchor
 				component='a'
@@ -120,18 +120,20 @@ const Header = () => {
 
 	return (
 		<>
-			<HeaderMantine height={60} mb={80} className={classes.root}>
+			<HeaderMantine height={60} className={classes.root}>
 				<Container size='xl' className={classes.header}>
 					<Group>
-						<Text>Chalvin Wiradhika</Text>
+						<Link href='/' passHref>
+							<Text component='a'>Chalvin Wiradhika</Text>
+						</Link>
 					</Group>
 					<Group position='right' spacing={40} className={classes.links}>
 						{navLink}
-						<DarkMode />
+						<SunMoonIcon />
 					</Group>
 
 					<Group className={classes.burger}>
-						<DarkMode />
+						<SunMoonIcon />
 						<Burger opened={opened} onClick={() => toggleOpened()} size='sm' />
 					</Group>
 

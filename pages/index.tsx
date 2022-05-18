@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	createStyles,
 	Container,
@@ -7,11 +6,12 @@ import {
 	Group,
 	useMantineTheme,
 	Title,
+	Box,
 } from '@mantine/core'
 import Layout from '../components/Layout'
 import Link from 'next/link'
 
-const BREAKPOINT = '@media (max-width: 755px)'
+const BREAKPOINT = '@media (max-width: 768px)'
 
 const useStyles = createStyles((theme) => ({
 	wrapper: {
@@ -21,10 +21,6 @@ const useStyles = createStyles((theme) => ({
 
 	inner: {
 		position: 'relative',
-		[BREAKPOINT]: {
-			paddingBottom: 80,
-			paddingTop: 80,
-		},
 	},
 
 	title: {
@@ -86,6 +82,21 @@ const useStyles = createStyles((theme) => ({
 			} !important`,
 		},
 	},
+
+	box: {
+		marginTop: 120,
+		marginBottom: 120,
+
+		[`@media (max-width: ${theme.breakpoints.lg}px)`]: {
+			marginTop: 100,
+			marginBottom: 100,
+		},
+
+		[`@media (max-width: ${theme.breakpoints.md}px)`]: {
+			marginTop: 80,
+			marginBottom: 80,
+		},
+	},
 }))
 
 const Home = () => {
@@ -94,7 +105,7 @@ const Home = () => {
 
 	return (
 		<Layout title='Home - Chalvin Wiradhika'>
-			<div className={classes.wrapper}>
+			<Box className={cx(classes.wrapper, classes.box)}>
 				<Container size={700} className={classes.inner}>
 					<Title order={1} className={classes.title}>
 						Hi, I Am
@@ -138,7 +149,7 @@ const Home = () => {
 						</Link>
 					</Group>
 				</Container>
-			</div>
+			</Box>
 		</Layout>
 	)
 }
