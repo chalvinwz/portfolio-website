@@ -11,7 +11,7 @@ import { useHotkeys, useLocalStorage } from '@mantine/hooks'
 function MyApp({ Component, pageProps }: AppProps) {
 	const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
 		key: 'mantine-color-scheme',
-		defaultValue: 'light',
+		defaultValue: 'dark',
 		getInitialValueInEffect: true,
 	})
 
