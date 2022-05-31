@@ -7,11 +7,11 @@ export const dataNavLinks: NavLinks = {
 			label: 'Home',
 		},
 		{
-			link: '/blog',
+			link: '/on-going',
 			label: 'Blog',
 		},
 		{
-			link: '/project',
+			link: '/on-going',
 			label: 'Project',
 		},
 	],

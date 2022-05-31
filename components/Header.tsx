@@ -14,11 +14,13 @@ import {
 	Burger,
 	Transition,
 	Paper,
+	ActionIcon,
 } from '@mantine/core'
 
-import { useBooleanToggle } from '@mantine/hooks'
+import { useBooleanToggle, useClickOutside } from '@mantine/hooks'
 
 import SunMoonIcon from './SunMoonIcon'
+import { Menu2, X } from 'tabler-icons-react'
 
 const useStyles = createStyles((theme) => ({
 	root: {
@@ -103,6 +105,7 @@ const useStyles = createStyles((theme) => ({
 const Header = () => {
 	const { classes, cx } = useStyles()
 	const [opened, toggleOpened] = useBooleanToggle(false)
+	const ref = useClickOutside(() => toggleOpened())
 	const router = useRouter()
 
 	const navLink = dataNavLinks.links.map((link) => (
@@ -134,7 +137,16 @@ const Header = () => {
 
 					<Group className={classes.burger}>
 						<SunMoonIcon />
-						<Burger opened={opened} onClick={() => toggleOpened()} size='sm' />
+						{opened ? (
+							<ActionIcon onClick={() => toggleOpened()}>
+								<X />
+							</ActionIcon>
+						) : (
+							<ActionIcon onClick={() => toggleOpened()}>
+								<Menu2 />
+							</ActionIcon>
+						)}
+						{/* <Burger opened={opened} onClick={() => toggleOpened()} size='sm' /> */}
 					</Group>
 
 					<Transition
@@ -143,7 +155,12 @@ const Header = () => {
 						mounted={opened}
 					>
 						{(styles) => (
-							<Paper className={classes.dropdown} withBorder style={styles}>
+							<Paper
+								ref={ref}
+								className={classes.dropdown}
+								withBorder
+								style={styles}
+							>
 								{navLink}
 							</Paper>
 						)}

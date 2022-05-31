@@ -126,7 +126,7 @@ const Home = () => {
 					</Text>
 
 					<Group className={classes.controls}>
-						<Link href='/blog' passHref>
+						<Link href='/on-going' passHref>
 							<Button
 								size='lg'
 								className={classes.control}
@@ -137,7 +137,7 @@ const Home = () => {
 							</Button>
 						</Link>
 
-						<Link href='/project' passHref>
+						<Link href='/on-going' passHref>
 							<Button
 								size='lg'
 								variant='outline'
