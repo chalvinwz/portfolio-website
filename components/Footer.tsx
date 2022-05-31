@@ -47,7 +47,7 @@ const Footer = () => {
 				</Link>
 
 				<Text>
-					Made with ❤️ with{' '}
+					Made by ❤️ with{' '}
 					<Anchor href='https://nextjs.org' target='_blank'>
 						Next.js
 					</Anchor>
