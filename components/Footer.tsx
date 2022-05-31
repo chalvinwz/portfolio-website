@@ -5,6 +5,7 @@ import {
 	ActionIcon,
 	Text,
 	Footer as FooterMantine,
+	Anchor,
 } from '@mantine/core'
 import Link from 'next/link'
 
@@ -33,10 +34,6 @@ const useStyles = createStyles((theme) => ({
 			flexDirection: 'column',
 		},
 	},
-
-	underline: {
-		textDecoration: 'underline',
-	},
 }))
 
 const Footer = () => {
@@ -49,24 +46,20 @@ const Footer = () => {
 					<Text component='a'>Chalvin Wiradhika</Text>
 				</Link>
 
-				<Group spacing={0}>
-					<Text
-						component='a'
-						href='https://github.com/chalvinwz/portfolio-website'
-						size='sm'
-						className={classes.underline}
-					>
-						Tech Stack
-					</Text>
-
-					<ActionIcon
-						size='lg'
-						component='a'
-						href='https://github.com/chalvinwz/portfolio-website'
-					>
-						<BrandGithub size={20} />
-					</ActionIcon>
-				</Group>
+				<Text>
+					Made by ❤️ with{' '}
+					<Anchor href='https://nextjs.org' target='_blank'>
+						Next.js
+					</Anchor>
+					,{' '}
+					<Anchor href='https://mantine.dev' target='_blank'>
+						Mantine
+					</Anchor>{' '}
+					&#38;{' '}
+					<Anchor href='https://vercel.com' target='_blank'>
+						Vercel
+					</Anchor>
+				</Text>
 
 				<Group spacing={8} noWrap>
 					<ActionIcon
